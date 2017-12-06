@@ -1,22 +1,27 @@
 package model;
 
 public class Car {
-	String brand;
-	String model;
-	int carId;
-	double dailyPrice;
-	String carLocation;
-	Boolean isAvailable;
-	
+	private String ownerUserame;
+	private String brand;
+	private String model;
+	private int carId;
+	private double hourlyPrice;
+	private String carLocation;
+	private Boolean isAvailable;
+
+	static int carCounter = 0;
+
 	public Car() {
-		//No-arg constructor
+		// No-arg constructor
 	}
-	
-	public Car(String brand, String model, int carId, double dailyPrice, String carLocation) {
+
+	public Car(String ownerUsername, String brand, String model, double hourlyPrice, String carLocation) {
+		carCounter++;
+		this.carId = carCounter;
+		this.ownerUserame = ownerUsername;
 		this.brand = brand;
 		this.model = model;
-		this.carId = carId;
-		this.dailyPrice = dailyPrice;
+		this.hourlyPrice = hourlyPrice;
 		this.carLocation = carLocation;
 		this.isAvailable = true;
 	}
@@ -24,7 +29,7 @@ public class Car {
 	public void toggleAvailability() {
 		this.isAvailable = !isAvailable;
 	}
-	
+
 	public String getBrand() {
 		return brand;
 	}
@@ -49,12 +54,12 @@ public class Car {
 		this.carId = carId;
 	}
 
-	public double getDailyPrice() {
-		return dailyPrice;
+	public double getHourlyPrice() {
+		return hourlyPrice;
 	}
 
-	public void setDailyPrice(double dailyPrice) {
-		this.dailyPrice = dailyPrice;
+	public void setHourlyPrice(double hourlyPrice) {
+		this.hourlyPrice = hourlyPrice;
 	}
 
 	public String getCarLocation() {
@@ -71,5 +76,13 @@ public class Car {
 
 	public void setIsAvailable(Boolean isAvailable) {
 		this.isAvailable = isAvailable;
+	}
+
+	public String getOwnerUserame() {
+		return ownerUserame;
+	}
+
+	public void setOwnerUserame(String ownerUserame) {
+		this.ownerUserame = ownerUserame;
 	}
 }

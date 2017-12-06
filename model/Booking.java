@@ -1,30 +1,18 @@
 package model;
 
-import java.time.LocalDate;
-import model.Db;
-
 public class Booking {
-	private LocalDate date;
 	private String userName;
 	private int carId;
 	private double totalPrice;
+	private String[] timeSlot;
 	private int bookingId;
-	
-	public Booking(String userName, int carId, int days, int dailyPrice, int bookingId) {
-		this.date = LocalDate.now();
+
+	public Booking(String userName, int carId, int hours, double hourlyPrice, String[] timeSlot) {
 		this.userName = userName;
 		this.carId = carId;
-		this.totalPrice = days * dailyPrice;
-		this.bookingId = bookingId;
-		
-	}
-
-	public LocalDate getDate() {
-		return date;
-	}
-
-	public void setDate() {
-		this.date = LocalDate.now();
+		this.totalPrice = hours * hourlyPrice;
+		this.timeSlot = timeSlot;
+		this.bookingId = setBookingId();
 	}
 
 	public String getUserName() {
@@ -51,12 +39,22 @@ public class Booking {
 		this.totalPrice = dailyPrice * days;
 	}
 
+	public String[] getTimeSlot() {
+		return this.timeSlot;
+	}
+
+	public void setTimeSlot(String startTime, String endTime) {
+		String[] timeSlot = { startTime, endTime };
+		this.timeSlot = timeSlot;
+	}
+
 	public int getBookingId() {
 		return bookingId;
 	}
 
-	public void setBookingId(int bookingId) {
+	public int setBookingId() {
 		this.bookingId = bookingId;
+		return bookingId;
 	}
-	
+
 }

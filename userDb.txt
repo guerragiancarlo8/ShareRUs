@@ -1,0 +1,3 @@
+administrator mk mk firstName lastName cpr 
+customer mkro kro222 mads krogh 2222222222 
+customer gcap cap111 giulia cappa 2222221111 
